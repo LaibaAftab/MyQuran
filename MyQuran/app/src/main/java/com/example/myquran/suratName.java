@@ -1,4 +1,4 @@
-package com.example.quranapp;
+package com.example.myquran;
 
 public class suratName {
 

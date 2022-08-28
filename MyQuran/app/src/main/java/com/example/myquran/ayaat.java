@@ -1,25 +1,38 @@
-package com.example.quranapp;
+package com.example.myquran;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Toolbar;
 
-import java.sql.SQLOutput;
+import com.google.android.material.navigation.NavigationView;
+
 import java.util.ArrayList;
 
-public class MainActivity2 extends AppCompatActivity {
+public class ayaat extends AppCompatActivity {
 
-    ListView list;
+
+
+    ListView listview;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_ayaat);
+
+        listview = findViewById(R.id.listayaat);
         Intent i = getIntent();
-        list = findViewById(R.id.list2);
+
+
         suratName s = new suratName();
         int[] arr =s.SSP;
         int startindex,endindex;
@@ -42,8 +55,8 @@ public class MainActivity2 extends AppCompatActivity {
             ayyats.add(ayaat.QuranArabicText[j]);
         }
 
-        ArrayAdapter<String> a = new ArrayAdapter<>(MainActivity2.this,android.R.layout.simple_list_item_1,ayyats);
-        list.setAdapter(a);
+        ArrayAdapter<String> a = new ArrayAdapter<>(ayaat.this,android.R.layout.simple_list_item_1,ayyats);
+        listview.setAdapter(a);
 
     }
 }
